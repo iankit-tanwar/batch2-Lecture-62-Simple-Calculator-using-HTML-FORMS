@@ -1,17 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>batch2 Lecture 62 Simple Calculator using HTML FORMS</title>
 </head>
+
 <body>
 
     <form>
-        <input type="text" name="text">
-        <input type="text" name="operator">
-        <input type="text" name="text2">
+        <input type="text" name="number1" size="5">
+        <select name="select" id="op">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select>
+        <input type="text" name="number2" size="5">
+        <input type="button" value="=" onclick="save(event)">
     </form>
-    
+
+    <span id="res"></span>
+
+
+    <script>
+        //function defiantion
+        let n1 = document.querySelector('input[name=number1]');
+        let n2 = document.querySelector('input[name=number2]');
+        let res = document.getElementById('res');
+
+        var op = document.getElementById('op');
+
+
+
+        function save() {
+            let x = parseFloat(n1.value);
+            let y = parseFloat(n2.value);
+
+           // console.log(typeof x)
+           // console.log(typeof y);
+
+         //   console.log(x + y);
+
+
+
+          //  res.innerHTML = x + y
+            console.log(op.value)
+
+            switch (op.value) {
+                case '+':
+                    // code block
+                    console.log(x + y);
+                    res.innerHTML = x + y
+                    break;
+                case '-':
+                    // code block
+                    console.log(x - y);
+                    res.innerHTML = x - y
+                    break;
+                case '*':
+                    // code block
+                    console.log(x * y);
+                    res.innerHTML = x * y
+                    break;
+                case '/':
+                    // code block
+                    console.log(x / y);
+                    res.innerHTML = x / y
+                    break;
+                default:
+                    console.log("invalid")
+                    res.innerHTML =  "invalid";
+                // code block
+            }
+
+
+
+
+        }
+    </script>
+
 </body>
+
 </html>
